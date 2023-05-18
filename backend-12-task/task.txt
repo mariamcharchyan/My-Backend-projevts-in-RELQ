@@ -1,0 +1,76 @@
+👉 You need to develop an API for a blog in Node.js
+
+
+Requirements:
+
+The application is a page on which any authorized users can make entries.
+
+1. It is necessary to implement registration and authorization of the user, as well as verification of the JWT token when making entries on the page
+2. The blog entry contains:
+     1. Recording date
+     2. Message: can contain both text and media
+     3. Author of the message
+3. Pagination should be implemented on the page with posts, 20 posts should be displayed on each page (pagination)
+4. Post author can edit or delete post
+5. The database must be filled with start records
+6. You need to deploy the server for public access
+7. You need to write documentation for endpoints (manually or generate from code)
+
+Can be used:
+
+- Database can be PostgreSQL or MongoDB
+- Possibility of express
+- Libraries for working with ORM
+- TypeScript (will be a plus)
+
+Can not use:
+
+- Nuxt.js / Next.js
+
+Criteria for evaluation:
+
+- Performance according to the TOR
+- Solution architecture
+- Code cleanliness
+- Ease of checking
+
+Technical Task junior/middle NodeJS Developer
+________________________________________________________________________________________
+
+👉 Դուք պետք է մշակեք API բլոգի համար Node.js-ում
+
+
+Պահանջներ:
+
+Հավելվածը էջ է, որտեղ ցանկացած լիազորված օգտատեր կարող է գրառումներ կատարել:
+
+1. Էջում գրառումներ կատարելիս անհրաժեշտ է իրականացնել օգտատիրոջ գրանցում և թույլտվություն, ինչպես նաև JWT նշանի ստուգում։
+2. Բլոգի գրառումը պարունակում է.
+      1. Ձայնագրման ամսաթիվ
+      2. Հաղորդագրություն. կարող է պարունակել և՛ տեքստ, և՛ մեդիա
+      3. Հաղորդագրության հեղինակ
+3. Գրառումներ ունեցող էջում պետք է իրականացվի էջավորում, յուրաքանչյուր էջում ցուցադրվի 20 գրառում (էջադրում)
+4. Գրառման հեղինակը կարող է խմբագրել կամ ջնջել գրառումը
+5. Տվյալների բազան պետք է լրացվի մեկնարկային գրառումներով
+6. Դուք պետք է տեղակայեք սերվերը հանրային մուտքի համար
+7. Ձեզ անհրաժեշտ է փաստաթղթեր գրել վերջնակետերի համար (ձեռքով կամ ստեղծել կոդից)
+
+Կարող է օգտագործվել:
+
+- Տվյալների բազան կարող է լինել PostgreSQL կամ MongoDB
+- Էքսպրեսի հնարավորություն
+- Գրադարաններ ORM-ի հետ աշխատելու համար
+- TypeScript (կլինի գումարած)
+
+Հնարավոր չէ օգտագործել.
+
+- Nuxt.js / Next.js
+
+Գնահատման չափանիշներ.
+
+- Կատարումը ըստ TOR-ի
+- Լուծումների ճարտարապետություն
+- Կոդերի մաքրություն
+- Ստուգման հեշտություն
+
+Technical Task կրտսեր/միջին NodeJS ծրագրավորող

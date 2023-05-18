@@ -1,0 +1,14 @@
+npx sequelize-cli model:generate --name Product --attributes name:string,description:string,price:decimal,categoryId:integer
+
+npx sequelize-cli model:generate --name Category --attributes name:string
+
+//migtation papkayi produkti masum avelacnel
+categoryId: {
+        type: Sequelize.INTEGER,
+        references: {
+            model: 'Categories',
+            key: 'id'
+        }
+      },
+
+npx sequelize-cli db:migrate  

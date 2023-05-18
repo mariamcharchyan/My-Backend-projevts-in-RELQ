@@ -1,0 +1,127 @@
+1.Ստեղծել պապկա, մեջը սարքել server.js և database.db
+2. cmd-ով մտնել պապկաի մեջ և անել
+    npm init -y 
+    npm install nodemon express sequelize sequelize-cli sqlite3
+3.server.js-ի մեջ գրել    
+    const express = require('express');
+
+    const app = express();
+
+    app.get('/', (req, res) => {
+    res.send('Hello World!');
+    });
+
+    app.listen(3000, () => {
+    console.log('Server running on port 3000');
+    });
+4.cmd-ում անել
+    npx sequelize-cli init
+
+    կստեղծի պապկաներ config.json-ում գրել
+    {
+    "development": {
+        "dialect": "sqlite",
+        "storage": "./database.sqlite"
+    },
+    "test": {
+        "dialect": "sqlite",
+        "storage": ":memory:"
+    },
+    "production": {
+        "dialect": "sqlite",
+        "storage": "./database.sqlite"
+    }
+    }
+
+5.models պապկաի մեջ սարքել user.js և մեջը գրել
+    module.exports = (sequelize, DataTypes) => {
+    const User = sequelize.define('User', {
+        firstName: DataTypes.STRING,
+        lastName: DataTypes.STRING,
+        email: DataTypes.STRING,
+    });
+
+    return User;
+    };
+
+6.cmd-ում անել
+    npx sequelize-cli migration:generate --name create-users
+
+    migration պապկայի մեջ կստեղծի js ֆայլ, որի մեջ գրել
+
+    module.exports = {
+        up: async (queryInterface, Sequelize) => {
+            await queryInterface.createTable('Users', {
+            id: {
+                allowNull: false,
+                autoIncrement: true,
+                primaryKey: true,
+                type: Sequelize.INTEGER,
+            },
+            firstName: {
+                type: Sequelize.STRING,
+            },
+            lastName: {
+                type: Sequelize.STRING,
+            },
+            email: {
+                type: Sequelize.STRING,
+                unique: true,
+            },
+
+            createdAt: {
+                allowNull: false,
+                type: Sequelize.DATE,
+            },
+            updatedAt: {
+                allowNull: false,
+                type: Sequelize.DATE,
+            },
+            });
+        },
+        down: async (queryInterface, Sequelize) => {
+            await queryInterface.dropTable('Users');
+        },
+        };
+
+7.cmd-ում անել
+    npx sequelize-cli db:migrate
+    npx sequelize-cli seed:generate --name add_users
+
+    կստեղծի seeders-ի մեջ js ֆայլ, որի մեջ գրել
+
+    'use strict';
+
+    module.exports = {
+    up: async (queryInterface, Sequelize) => {
+        await queryInterface.bulkInsert('Users', [
+        {
+            firstName: 'John',
+            lastName: 'Doe',
+            email: 'john.doe@example.com',
+            createdAt: new Date(),
+            updatedAt: new Date(),
+        },
+        {
+            firstName: 'Jane',
+            lastName: 'Doe',
+            email: 'jane.doe@example.com',
+            createdAt: new Date(),
+            updatedAt: new Date(),
+        },
+        ], {});
+    },
+
+    down: async (queryInterface, Sequelize) => {
+        await queryInterface.bulkDelete('Users', null, {});
+    }
+    };
+
+7.cmd-ում անել seed-ը ստեղծելու համար անել՝
+        npx sequelize-cli db:seed:all
+  cmd-ում անել seed-ը ջնջելու համար անել՝
+        npx sequelize-cli db:seed:undo:all
+
+https://www.npmjs.com/package/sequelize-cli
+stexcel application vor@ kunena model blog,  kunena name, description, text, rating
+stexcel ira hamar migration, stexcel ira hamar seeders
